@@ -1,7 +1,7 @@
 from video import CaptureFeed
-import cv2
 from tracking import EyeTracker
 from communications import Communicator
+
 
 class DataManager:
 
@@ -20,6 +20,21 @@ class DataManager:
         next_frame = self.camera.get_next_frame()
         eye_info = self.eye_tracker.get_eye_info(next_frame)
         self.data_filter.add_data_point(eye_info)
+        self._handle_communications(eye_info)
+
+    def _handle_communications(self, eye_info):
+        right = eye_info.right_is_closed and self.data_filter.is_right_closed()
+        left = eye_info.left_is_closed and self.data_filter.is_left_closed()
+        if not (right and left):
+            if right:
+                self.rpi_link.send_up()
+            elif left:
+                self.rpi_link.send_down()
+            else:
+                x = self.data_filter.get_x()
+                y = self.data_filter.get_y()
+                self.rpi_link.send_delta(x, y)
+
 
 class DataFilter:
 
@@ -42,3 +57,21 @@ class DataFilter:
         self.filtered_x += self.lpf_alpha * (eye_info.x - self.filtered_x)
         self.filtered_y += self.lpf_alpha * (eye_info.y - self.filtered_y)
 
+    def is_right_closed(self):
+        return self._is_eye_closed(self.filtered_right)
+
+    def is_left_closed(self):
+        return self._is_eye_closed(self.filtered_left)
+
+    def _is_eye_closed(self, filtered_eye):
+        cnt = 0
+        for i in range(len(filtered_eye)):
+            if filtered_eye[i]:
+                cnt += 1
+        return cnt > int(self.MAX_LEN / 2)
+
+    def get_x(self):
+        return self.filtered_x
+
+    def get_y(self):
+        return self.filtered_y
