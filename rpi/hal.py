@@ -6,7 +6,7 @@ import numpy as np
 class HardwareAbstractionLayer:
 
     ARM_ONE_LENGTH = 1
-    ARM_TWO_LENGTH = 2
+    ARM_TWO_LENGTH = 1
     Z_MOVEMENT_FACTOR = 2
 
     def __init__(self):
@@ -27,17 +27,17 @@ class HardwareAbstractionLayer:
 
         control_inputs = np.linalg.lstsq(jacobian, desired)[0]
         new_shoulder = self.shoulder_motor.get_angle() + control_inputs[0]
-        self.shoulder_motor.set_angle(new_shoulder)
         new_elbow = self.elbow_motor.get_angle() + control_inputs[1]
-        self.elbow_motor.set_angle(new_elbow)
+        success = self.shoulder_motor.set_angle(new_shoulder) and self.elbow_motor.set_angle(new_elbow)
+        return success
 
     def move_instrument_up(self):
         new_z = self.z_motor.get_angle() + self.Z_MOVEMENT_FACTOR
-        self.z_motor.set_angle(new_z)
+        return self.z_motor.set_angle(new_z)
 
     def move_instrument_down(self):
         new_z = self.z_motor.get_angle() - self.Z_MOVEMENT_FACTOR
-        self.z_motor.set_angle(new_z)
+        return self.z_motor.set_angle(new_z)
 
     def compute_jacobian(self, theta_one, theta_two):
         l1 = self.ARM_ONE_LENGTH
