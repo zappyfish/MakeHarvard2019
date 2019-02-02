@@ -14,8 +14,7 @@ class DataManager:
     def camera_test(self):
         while True:
             frame = self.camera.get_next_frame()
-            cv2.imshow('test', frame)
-            cv2.waitKey(1)
+            self.eye_tracker.get_eye_info(frame)
 
     def get_and_process_frame(self):
         next_frame = self.camera.get_next_frame()

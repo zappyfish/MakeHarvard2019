@@ -27,7 +27,7 @@ if __name__ == '__main__':
     m2 = myhal.elbow_motor
 
     for i in range(100):
-        myhal.translate_instrument(-0.01, 0.01)
+        myhal.translate_instrument(-0.1, 0.11)
 
     print(compute_position(m1, m2))
 
