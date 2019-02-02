@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f26a1c15-4494-4893-a75b-3127785c95d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/video.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/communications.py" beforeDir="false" afterPath="$PROJECT_DIR$/communications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.py" afterDir="false" />
-    </list>
+    <list default="true" id="f26a1c15-4494-4893-a75b-3127785c95d5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +40,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tracking.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -71,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="360">
+              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
                 <marker date="1549132018304" expanded="true" signature="132:133" ph="..." />
@@ -238,22 +232,28 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.2/python_stubs/-1199943127/cv2/cv2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="7276" column="4" selection-start-line="7276" selection-start-column="4" selection-end-line="7276" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <marker date="1549132018304" expanded="true" signature="132:133" ph="..." />
+            <marker date="1549132018304" expanded="true" signature="132:134" ph="..." />
+            <marker date="1549132018304" expanded="true" signature="692:693" ph="..." />
+            <marker date="1549132018304" expanded="true" signature="692:716" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -266,9 +266,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/communications.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -287,20 +284,6 @@
           <folding>
             <marker date="1549125455718" expanded="true" signature="18:24" ph="..." />
             <marker date="1549125455718" expanded="true" signature="156:162" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <marker date="1549132018304" expanded="true" signature="132:133" ph="..." />
-            <marker date="1549132018304" expanded="true" signature="132:134" ph="..." />
-            <marker date="1549132018304" expanded="true" signature="692:693" ph="..." />
-            <marker date="1549132018304" expanded="true" signature="692:716" ph="..." />
           </folding>
         </state>
       </provider>
