@@ -8,8 +8,8 @@ class Communicator:
     UP = BASE_URL + '/move/up'
     DOWN = BASE_URL + '/move/down'
 
-    TIMEOUT = 0.2
-    MIN_TIME = 0.02
+    TIMEOUT = 0.3
+    MIN_TIME = 0.005
 
     def __init__(self):
         self.last_send_time = time.time()
