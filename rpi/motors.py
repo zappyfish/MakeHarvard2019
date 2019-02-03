@@ -22,7 +22,7 @@ class Motor:
     def change_angle(self, angle):
         pwm = self._map_angle_to_dc(angle) + self.pwm_signal
         if self.can_set_pwm_to(pwm):
-            wiringpi.pwmWrite(self.pwm, pwm)
+            wiringpi.pwmWrite(self.pwm, int(pwm))
             self.pwm_signal = pwm
             print("signal set to ")
             print(pwm)
@@ -33,7 +33,7 @@ class Motor:
             return False
 
     def _map_angle_to_dc(self, angle):
-        return int(angle / self.PWM_ANGLE_SCALE_FACTOR)
+        return angle
 
     def get_angle(self):
         return (self.pwm_signal - self.START_SIGNAL) * self.PWM_ANGLE_SCALE_FACTOR
