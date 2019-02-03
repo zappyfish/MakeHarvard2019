@@ -36,7 +36,7 @@ class Motor:
         return int(angle / self.PWM_ANGLE_SCALE_FACTOR)
 
     def get_angle(self):
-        return (self.pwm_signal * self.PWM_ANGLE_SCALE_FACTOR) - self.START_SIGNAL
+        return (self.pwm_signal - self.START_SIGNAL) * self.PWM_ANGLE_SCALE_FACTOR
 
     def can_set_pwm_to(self, pwm):
         return self.MIN_DC <= pwm <= self.MAX_DC
