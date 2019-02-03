@@ -40,7 +40,48 @@ class EyeTracker:
         pass
 
     def get_eye_info(self, frame):
+        thresh = 0.275  # Higher thresh, more often finds closed eyes
+        frame_check = 5  # Alters how long you have to close your eye to draw
+
+        # Drowsiness Tracker
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        subjects = self.detector(gray, 0)
+        for subject in subjects:
+            shape = self.predictor(gray, subject)
+            shape = face_utils.shape_to_np(shape)  # converting to NumPy Array
+            leftEye = shape[self.lStart:self.lEnd]
+            rightEye = shape[self.rStart:self.rEnd]
+            leftEAR = self.eye_aspect_ratio(leftEye)
+            rightEAR = self.eye_aspect_ratio(rightEye)
+            ear = (leftEAR + rightEAR) / 2.0
+            leftEyeHull = cv2.convexHull(leftEye)
+            rightEyeHull = cv2.convexHull(rightEye)
+            cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
+            cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
+
+            if ear < thresh:
+                print('Eye closed?', self.flag)
+                if leftEAR < rightEAR:
+                    self.left_closed = True
+                    print('left closed')
+                else:
+                    self.right_closed = True
+                    print('right closed')
+
+                self.flag += 1
+                # print (flag)
+                if self.flag >= frame_check:
+                    cv2.putText(frame, "****************ALERT!****************", (10, 30),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    cv2.putText(frame, "****************ALERT!****************", (10, 325),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+            else:
+                self.left_closed = False
+                self.right_closed = False
+                self.flag = 0
+
         return EyePacket(self.left_closed, self.right_closed, self.x, self.y)
+        # cv2.imshow("Frame", image)
 
     def min_intensity_x(self, img):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -115,48 +156,6 @@ class EyeTracker:
         image[upper_bound - 3:lower_bound + 3, left[0] - 3:right[0] + 3] = eye
         return eye
 
-    def detect_closed_eyes(self, image):
-        thresh = 0.275  # Higher thresh, more often finds closed eyes
-        frame_check = 5  # Alters how long you have to close your eye to draw
-
-        # Drowsiness Tracker
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        subjects = self.detector(gray, 0)
-        for subject in subjects:
-            shape = self.predictor(gray, subject)
-            shape = face_utils.shape_to_np(shape)  # converting to NumPy Array
-            leftEye = shape[self.lStart:self.lEnd]
-            rightEye = shape[self.rStart:self.rEnd]
-            leftEAR = self.eye_aspect_ratio(leftEye)
-            rightEAR = self.eye_aspect_ratio(rightEye)
-            ear = (leftEAR + rightEAR) / 2.0
-            leftEyeHull = cv2.convexHull(leftEye)
-            rightEyeHull = cv2.convexHull(rightEye)
-            cv2.drawContours(image, [leftEyeHull], -1, (0, 255, 0), 1)
-            cv2.drawContours(image, [rightEyeHull], -1, (0, 255, 0), 1)
-
-            if ear < thresh:
-                print('Eye closed?', self.flag)
-                if leftEAR < rightEAR:
-                    self.left_closed = True
-                    print('left closed')
-                else:
-                    self.right_closed = True
-                    print('right closed')
-
-                self.flag += 1
-                # print (flag)
-                if self.flag >= frame_check:
-                    cv2.putText(image, "****************ALERT!****************", (10, 30),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-                    cv2.putText(image, "****************ALERT!****************", (10, 325),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-            else:
-                self.left_closed = False
-                self.right_closed = False
-                self.flag = 0
-        # cv2.imshow("Frame", image)
-
     def run(self):
         while True:
             # load the input image, resize it, and convert it to grayscale
@@ -196,7 +195,7 @@ class EyeTracker:
                     count += 1
 
                 image[0:len(right_eye), 0:len(right_eye[0])] = right_eye
-            self.detect_closed_eyes(image)
+            self.get_eye_info(image)
             cv2.imshow("PupilTrack v.0.1", image)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
