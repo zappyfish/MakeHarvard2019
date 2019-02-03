@@ -23,8 +23,6 @@ class DataManager:
         self._handle_communications(eye_info)
 
     def _handle_communications(self, eye_info):
-        #right = eye_info.right_is_closed and self.data_filter.is_right_closed()
-        #left = eye_info.left_is_closed and self.data_filter.is_left_closed()
         right = self.data_filter.is_right_closed()
         left = self.data_filter.is_left_closed()
         if not (right and left):
@@ -40,7 +38,7 @@ class DataManager:
 
 class DataFilter:
 
-    MAX_LEN = 10
+    MAX_LEN = 20
 
     def __init__(self):
         self.filtered_x = 0
@@ -70,7 +68,7 @@ class DataFilter:
         for i in range(len(filtered_eye)):
             if filtered_eye[i]:
                 cnt += 1
-        return cnt >= int(self.MAX_LEN / 2)
+        return cnt >= int(self.MAX_LEN / 2) and filtered_eye[self.MAX_LEN - 1]
 
     def get_x(self):
         return self.filtered_x

@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f26a1c15-4494-4893-a75b-3127785c95d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/shape_predictor_68_face_landmarks.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/eye-tracking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eye-tracking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/communications.py" beforeDir="false" afterPath="$PROJECT_DIR$/communications.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_eyes.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_eyes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../rpi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rpi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rpi/hal.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rpi/hal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rpi/motors.py" beforeDir="false" afterPath="$PROJECT_DIR$/../rpi/motors.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,22 +39,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3742" />
+          <entry key="py" value="3792" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3742" />
+          <entry key="Python" value="3792" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tracking.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
+            <state relative-caret-position="112">
               <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -83,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/communications.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
+            <state relative-caret-position="271">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -96,18 +89,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="150">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <marker date="1549179378010" expanded="true" signature="122:123" ph="..." />
-                <marker date="1549179378010" expanded="true" signature="122:124" ph="..." />
-                <marker date="1549179378010" expanded="true" signature="1344:1345" ph="..." />
-                <marker date="1549179378010" expanded="true" signature="1344:1368" ph="..." />
-                <marker date="1549179378010" expanded="true" signature="2245:2251" ph="..." />
+                <marker date="1549180442113" expanded="true" signature="122:123" ph="..." />
+                <marker date="1549180442113" expanded="true" signature="122:124" ph="..." />
+                <marker date="1549180442113" expanded="true" signature="1185:1186" ph="..." />
+                <marker date="1549180442113" expanded="true" signature="1185:1209" ph="..." />
+                <marker date="1549180442113" expanded="true" signature="2086:2092" ph="..." />
               </folding>
             </state>
           </provider>
@@ -182,8 +175,8 @@
         <option value="$PROJECT_DIR$/application.py" />
         <option value="$PROJECT_DIR$/communications.py" />
         <option value="$PROJECT_DIR$/find_eyes.py" />
-        <option value="$PROJECT_DIR$/data.py" />
         <option value="$PROJECT_DIR$/tracking.py" />
+        <option value="$PROJECT_DIR$/data.py" />
       </list>
     </option>
   </component>
@@ -278,8 +271,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33028573" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39885715" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33028573" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39885715" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -295,27 +288,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data.py</url>
-          <line>72</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/haarcascade_eye.xml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -324,14 +296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108915">
           <caret line="7276" column="4" selection-start-line="7276" selection-start-column="4" selection-end-line="7276" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -371,13 +335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/find_eyes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3465">
-          <caret line="239" selection-start-line="239" selection-end-line="239" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -385,24 +342,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data.py">
+    <entry file="file://$PROJECT_DIR$/find_eyes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <marker date="1549179378010" expanded="true" signature="122:123" ph="..." />
-            <marker date="1549179378010" expanded="true" signature="122:124" ph="..." />
-            <marker date="1549179378010" expanded="true" signature="1344:1345" ph="..." />
-            <marker date="1549179378010" expanded="true" signature="1344:1368" ph="..." />
-            <marker date="1549179378010" expanded="true" signature="2245:2251" ph="..." />
-          </folding>
+        <state relative-caret-position="3465">
+          <caret line="239" selection-start-line="239" selection-end-line="239" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/communications.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
+        <state relative-caret-position="271">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -416,10 +373,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tracking.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
+        <state relative-caret-position="112">
           <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <marker date="1549180442113" expanded="true" signature="122:123" ph="..." />
+            <marker date="1549180442113" expanded="true" signature="122:124" ph="..." />
+            <marker date="1549180442113" expanded="true" signature="1185:1186" ph="..." />
+            <marker date="1549180442113" expanded="true" signature="1185:1209" ph="..." />
+            <marker date="1549180442113" expanded="true" signature="2086:2092" ph="..." />
           </folding>
         </state>
       </provider>

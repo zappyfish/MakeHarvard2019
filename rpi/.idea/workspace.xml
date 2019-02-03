@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94ed9abc-e077-42aa-b293-c36992a52d28" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../eye-tracking/shape_predictor_68_face_landmarks.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/eye-tracking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/eye-tracking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eye-tracking/communications.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/communications.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eye-tracking/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eye-tracking/find_eyes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/find_eyes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eye-tracking/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/tracking.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hal.py" beforeDir="false" afterPath="$PROJECT_DIR$/hal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motors.py" beforeDir="false" afterPath="$PROJECT_DIR$/motors.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -40,12 +40,14 @@ class EyeTracker:
         pass
 
     def get_eye_info(self, frame):
-        thresh = 0.22  # Higher thresh, more often finds closed eyes
+        thresh = 0.2  # Higher thresh, more often finds closed eyes
         frame_check = 1  # Alters how long you have to close your eye to draw
 
         # Drowsiness Tracker
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         subjects = self.detector(gray, 0)
+        self.left_closed = False
+        self.right_closed = False
         for subject in subjects:
             shape = self.predictor(gray, subject)
             shape = face_utils.shape_to_np(shape)  # converting to NumPy Array
@@ -76,8 +78,6 @@ class EyeTracker:
                     cv2.putText(frame, "****************ALERT!****************", (10, 325),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
             else:
-                self.left_closed = False
-                self.right_closed = False
                 self.flag = 0
 
         return EyePacket(self.left_closed, self.right_closed, self.x, self.y)
