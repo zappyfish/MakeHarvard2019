@@ -27,12 +27,12 @@ class Motor:
         if self.can_set_pwm_to(pwm):
             wiringpi.pwmWrite(self.pwm, int(pwm))
             self.pwm_signal = pwm
-            print("signal set to ")
-            print(pwm)
+            print("angle set to ")
+            print(self.get_angle())
             return True
         else:
-            print("could not set to: ")
-            print(pwm)
+            print("could not set angle to: ")
+            print(self.get_angle() + angle)
             return False
 
     def _map_angle_to_dc(self, angle):
