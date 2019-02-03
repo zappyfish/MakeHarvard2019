@@ -4,7 +4,7 @@
     <list default="true" id="94ed9abc-e077-42aa-b293-c36992a52d28" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eye-tracking/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motors.py" beforeDir="false" afterPath="$PROJECT_DIR$/motors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eye-tracking/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/tracking.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

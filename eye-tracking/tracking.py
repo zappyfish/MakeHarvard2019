@@ -208,6 +208,3 @@ class EyePacket:
         self.right_is_closed = right_is_closed
         self.x = x
         self.y = y
-
-run = EyeTracker()
-run.run()

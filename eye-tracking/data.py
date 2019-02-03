@@ -38,7 +38,7 @@ class DataManager:
 
 class DataFilter:
 
-    MAX_LEN = 4
+    MAX_LEN = 1
 
     def __init__(self):
         self.filtered_x = 0
