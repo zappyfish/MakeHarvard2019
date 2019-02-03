@@ -1,4 +1,4 @@
-from motors import Motor
+from motors import Motor, ReverseMotor
 #from testing import TestMotor
 from math import sin, cos, pi
 import numpy as np
@@ -8,7 +8,7 @@ class HardwareAbstractionLayer:
     ARM_ONE_LENGTH = 1
     ARM_TWO_LENGTH = 1
     Z_MOVEMENT_FACTOR = 5
-    ANGLE_DISPLACEMENT_MAGNITUDE = 0.01
+    ANGLE_DISPLACEMENT_MAGNITUDE = 0.03
 
     def __init__(self):
         z_pin = 18
@@ -17,7 +17,7 @@ class HardwareAbstractionLayer:
 
         self.z_motor = Motor(z_pin)
         self.shoulder_motor = Motor(angle_one_pin, 80 * pi / 180)
-        self.elbow_motor = Motor(angle_two_pin, 105 * pi / 180)
+        self.elbow_motor = ReverseMotor(angle_two_pin, 105 * pi / 180)
 
     def translate_instrument(self, delta_x, delta_y):
         desired = np.array([delta_x, delta_y])

@@ -44,3 +44,26 @@ class Motor:
 
     def can_set_pwm_to(self, pwm):
         return self.MIN_DC <= pwm <= self.MAX_DC
+
+class ReverseMotor(Motor):
+
+    def __init__(self, motor_pin, start_angle_offset=0):
+        super(ReverseMotor, self).__init__(motor_pin, start_angle_offset)
+        self.applied_angle = self.angle
+        self.angle *= -1
+
+    def change_angle(self, angle):
+        start_angle = self.get_angle()
+        print("start angle: ")
+        print(start_angle)
+        pwm = self._map_angle_to_dc(self.applied_angle - self.angle)
+        if self.can_set_pwm_to(pwm):
+            wiringpi.pwmWrite(self.pwm, int(pwm))
+            self.angle += angle
+            self.applied_angle -= angle
+            print("end angle: ")
+            print(self.get_angle())
+            return True
+        else:
+            print("could not change")
+            return False
