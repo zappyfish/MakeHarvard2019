@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94ed9abc-e077-42aa-b293-c36992a52d28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eye-tracking/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/application.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hal.py" beforeDir="false" afterPath="$PROJECT_DIR$/hal.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,13 +31,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="py" value="6711" />
+          <entry key="py" value="6756" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="6711" />
+          <entry key="Python" value="6756" />
         </counts>
       </usages-collector>
     </session>
@@ -62,13 +60,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+            <state relative-caret-position="320">
+              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-                <marker date="1549214621418" expanded="true" signature="585:1427" ph="..." />
-                <marker date="1549214621418" expanded="true" signature="1320:1427" ph="..." />
-                <marker date="1549214621418" expanded="true" signature="1558:1630" ph="..." />
+                <marker date="1549214862675" expanded="true" signature="679:1521" ph="..." />
+                <marker date="1549214862675" expanded="true" signature="1414:1521" ph="..." />
+                <marker date="1549214862675" expanded="true" signature="1652:1724" ph="..." />
               </folding>
             </state>
           </provider>
@@ -243,7 +241,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hal.py</url>
-          <line>33</line>
+          <line>36</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -301,13 +299,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+        <state relative-caret-position="320">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <marker date="1549214621418" expanded="true" signature="585:1427" ph="..." />
-            <marker date="1549214621418" expanded="true" signature="1320:1427" ph="..." />
-            <marker date="1549214621418" expanded="true" signature="1558:1630" ph="..." />
+            <marker date="1549214862675" expanded="true" signature="679:1521" ph="..." />
+            <marker date="1549214862675" expanded="true" signature="1414:1521" ph="..." />
+            <marker date="1549214862675" expanded="true" signature="1652:1724" ph="..." />
           </folding>
         </state>
       </provider>
