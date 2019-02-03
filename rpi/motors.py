@@ -13,13 +13,16 @@ class Motor:
         pwm_pin = GPIO.setup(motor_pin, GPIO.OUT)
         self.angle = self.START_ANGLE
         self.pwm = GPIO.PWM(pwm_pin, self.angle) # 90 is start angle
+        print("started")
 
     def set_angle(self, angle):
         if self.can_set_angle(angle):
             self.pwm.changeDutyCycle(self._map_angle_to_dc(angle))
             self.angle = angle
+            print("changed angle to: " + str(self.angle))
             return True
         else:
+            print("could not change to angle" + str(self.angle)))
             return False
 
     def _map_angle_to_dc(self, angle):
