@@ -8,7 +8,7 @@ class HardwareAbstractionLayer:
     ARM_ONE_LENGTH = 1
     ARM_TWO_LENGTH = 1
     Z_MOVEMENT_FACTOR = 5
-    ANGLE_DISPLACEMENT_MAGNITUDE = 0.1
+    ANGLE_DISPLACEMENT_MAGNITUDE = 0.04
 
     def __init__(self):
         z_pin = 18
