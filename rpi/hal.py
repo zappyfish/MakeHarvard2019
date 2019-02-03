@@ -19,8 +19,8 @@ class HardwareAbstractionLayer:
         self.shoulder_motor = Motor(angle_one_pin, 20 * pi / 180)
         self.elbow_motor = Motor(angle_two_pin, 70 * pi / 180)
 
-        self.shoulder_motor.change_angle(-0.5)
-        self.shoulder_motor.change_angle(-0.5)
+        self.shoulder_motor.change_angle(-1)
+        self.shoulder_motor.change_angle(-1)
 
 
     def translate_instrument(self, delta_x, delta_y):
