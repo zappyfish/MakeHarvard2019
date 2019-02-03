@@ -12,13 +12,13 @@ class Motor:
         GPIO.setmode(GPIO.BCM)  # Broadcom pin-numbering scheme
         GPIO.setup(motor_pin, GPIO.OUT)
         self.angle = self.START_ANGLE
-        self.pwm = GPIO.PWM(motor_pin, 1000)  # 90 is start angle
-        self.pwm.start(50) # change this
+        self.pwm = GPIO.PWM(motor_pin, 2000)  # 90 is start angle
+        self.pwm.start(0) # change this
         print("started")
 
     def set_angle(self, angle):
         if self.can_set_angle(angle):
-            self.pwm.changeDutyCycle(self._map_angle_to_dc(angle))
+            self.pwm.ChangeDutyCycle(self._map_angle_to_dc(angle))
             self.angle = angle
             print("changed angle to: " + str(self.angle))
             return True
