@@ -11,7 +11,7 @@ class Motor:
     def __init__(self, motor_pin):
         wiringpi.wiringPiSetupGpio()
         self.pwm = motor_pin
-        wiringpi.pinMode(self.pwm, wiringpi.GPIO_PWM_OUTPUT)
+        wiringpi.pinMode(self.pwm, wiringpi.GPIO.PWM_OUTPUT)
         wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
         self.angle = self.START_ANGLE
         wiringpi.pwmSetClock(192) # TODO: check this
