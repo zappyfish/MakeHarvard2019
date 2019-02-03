@@ -18,6 +18,7 @@ class Motor:
         wiringpi.pwmSetClock(192)  # TODO: check this
         wiringpi.pwmSetRange(2000)
         wiringpi.pwmWrite(self.pwm, self.pwm_signal)
+        self.angle = 0
 
     def change_angle(self, angle):
         pwm = self._map_angle_to_dc(angle) + self.pwm_signal
@@ -26,6 +27,7 @@ class Motor:
             self.pwm_signal = pwm
             print("signal set to ")
             print(pwm)
+            self.angle += angle
             return True
         else:
             print("could not set to: ")
@@ -36,7 +38,7 @@ class Motor:
         return angle
 
     def get_angle(self):
-        return self.pwm_signal * self.PWM_ANGLE_SCALE_FACTOR
+        return self.angle
 
     def can_set_pwm_to(self, pwm):
         return self.MIN_DC <= pwm <= self.MAX_DC
