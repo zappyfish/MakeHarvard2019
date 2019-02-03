@@ -56,7 +56,7 @@ class ReverseMotor(Motor):
         start_angle = self.get_angle()
         print("start angle: ")
         print(start_angle)
-        pwm = self._map_angle_to_dc(self.applied_angle - self.angle)
+        pwm = self._map_angle_to_dc(self.applied_angle - angle)
         if self.can_set_pwm_to(pwm):
             wiringpi.pwmWrite(self.pwm, int(pwm))
             self.angle += angle
