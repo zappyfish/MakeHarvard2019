@@ -8,7 +8,7 @@ class HardwareAbstractionLayer:
     ARM_ONE_LENGTH = 1
     ARM_TWO_LENGTH = 1
     Z_MOVEMENT_FACTOR = 5
-    ANGLE_DISPLACEMENT_MAGNITUDE = 1 # hmmm
+    ANGLE_DISPLACEMENT_MAGNITUDE = 0.1
 
     def __init__(self):
         z_pin = 18
@@ -35,7 +35,7 @@ class HardwareAbstractionLayer:
             return False
 
     def remap_controls(self, control_inputs):
-        return control_inputs * (4 / np.linalg.norm(control_inputs))
+        return control_inputs * (self.ANGLE_DISPLACEMENT_MAGNITUDE / np.linalg.norm(control_inputs))
 
     def move_instrument_up(self):
         return self.z_motor.change_angle(self.Z_MOVEMENT_FACTOR)
