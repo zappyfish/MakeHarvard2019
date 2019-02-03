@@ -53,3 +53,7 @@ class HardwareAbstractionLayer:
         dy_dt2 = l2 * cos(t1 + t2)
 
         return np.array([[dx_dt1, dx_dt2], [dy_dt1, dy_dt2]])
+
+    def test_move(self, x, y, r=20):
+        for i in range(r):
+            self.translate_instrument(x, y)
