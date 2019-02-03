@@ -33,7 +33,7 @@ class HardwareAbstractionLayer:
         return self.z_motor.change_angle(self.Z_MOVEMENT_FACTOR)
 
     def move_instrument_down(self):
-        return self.z_motor.set_angle(-self.Z_MOVEMENT_FACTOR)
+        return self.z_motor.change_angle(-self.Z_MOVEMENT_FACTOR)
 
     def compute_jacobian(self, theta_one, theta_two):
         l1 = self.ARM_ONE_LENGTH
