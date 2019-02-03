@@ -38,7 +38,7 @@ class DataManager:
 
 class DataFilter:
 
-    MAX_LEN = 10
+    MAX_LEN = 4
 
     def __init__(self):
         self.filtered_x = 0
@@ -68,7 +68,7 @@ class DataFilter:
         for i in range(len(filtered_eye)):
             if filtered_eye[i]:
                 cnt += 1
-        return cnt > int(self.MAX_LEN / 2)
+        return cnt >= int(self.MAX_LEN / 2)
 
     def get_x(self):
         return self.filtered_x

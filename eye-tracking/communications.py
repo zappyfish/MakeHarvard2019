@@ -13,11 +13,11 @@ class Communicator:
 
     def send_delta(self, x, y):
         data = {'x': x, 'y': y}
-        requests.post(self.TRANSLATE, data=data)
+        #requests.post(self.TRANSLATE, data=data, timeout=0.1)
 
     def send_up(self):
-        requests.post(self.UP)
+        requests.post(self.UP, timeout=0.1)
 
     def send_down(self):
-        requests.post(self.DOWN)
+        requests.post(self.DOWN, timeout=0.1)
 
