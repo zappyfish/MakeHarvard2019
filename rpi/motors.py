@@ -19,7 +19,7 @@ class Motor:
         self.angle = start_angle_offset
         wiringpi.pwmSetClock(192)  # TODO: check this
         wiringpi.pwmSetRange(2000)
-        wiringpi.pwmWrite(self.pwm, self._map_angle_to_dc(self.angle))
+        wiringpi.pwmWrite(self.pwm, int(self._map_angle_to_dc(self.angle)))
 
     def change_angle(self, angle):
         start_angle = self.get_angle()
