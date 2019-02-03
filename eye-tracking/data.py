@@ -11,10 +11,10 @@ class DataManager:
         self.rpi_link = Communicator()
         self.data_filter = DataFilter()
 
-    def camera_test(self):
-        while True:
-            frame = self.camera.get_next_frame()
-            self.eye_tracker.get_eye_info(frame)
+    # def camera_test(self):
+    #     while True:
+    #         frame = self.camera.get_next_frame()
+    #         self.eye_tracker.get_eye_info(frame)
 
     def get_and_process_frame(self):
         next_frame = self.camera.get_next_frame()
