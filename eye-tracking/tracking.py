@@ -6,6 +6,7 @@ import time
 import argparse
 import imutils
 from imutils import face_utils
+from scipy.spatial import distance
 import dlib
 
 
@@ -17,19 +18,29 @@ args = vars(ap.parse_args())
 
 
 class EyeTracker:
+    x = 0
+    y = 0
+    left_closed = False
+    right_closed = False
+
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor(args["shape_predictor"])
 
     cap = cv2.VideoCapture(0)
 
+    (lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
+    (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
+
     past_values_x = []
     past_values_y = []
+
+    flag = 0
 
     def __init__(self):
         pass
 
     def get_eye_info(self, frame):
-        return EyePacket(False, False, 0, 0)
+        return EyePacket(self.left_closed, self.right_closed, self.x, self.y)
 
     def min_intensity_x(self, img):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -79,14 +90,21 @@ class EyeTracker:
 
         return int(sum(self.past_values_y) / len(self.past_values_y))
 
+    def eye_aspect_ratio(self, eye):
+        A = distance.euclidean(eye[1], eye[5])
+        B = distance.euclidean(eye[2], eye[4])
+        C = distance.euclidean(eye[0], eye[3])
+        ear = (A + B) / (2.0 * C)
+        return ear
+
     def extract_eye(self, image, left, bottom_left, bottom_right, right, upper_right, upper_left):
         lower_bound = max([left[1], right[1], bottom_left[1], bottom_right[1], upper_left[1], upper_right[1]])
         upper_bound = min([left[1], right[1], upper_left[1], upper_right[1], bottom_left[1], bottom_right[1]])
 
         eye = image[upper_bound - 3:lower_bound + 3, left[0] - 3:right[0] + 3]
 
-        pupil_x = self.min_intensity_x(eye)
-        pupil_y = self.min_intensity_y(eye)
+        self.x = pupil_x = self.min_intensity_x(eye)
+        self.y = pupil_y = self.min_intensity_y(eye)
 
         cv2.line(eye, (pupil_x, 0), (pupil_x, len(eye)), (0, 255, 0), 1)
         cv2.line(eye, (0, pupil_y), (len(eye[0]), pupil_y), (0, 255, 0), 1)
@@ -96,6 +114,48 @@ class EyeTracker:
 
         image[upper_bound - 3:lower_bound + 3, left[0] - 3:right[0] + 3] = eye
         return eye
+
+    def detect_closed_eyes(self, image):
+        thresh = 0.25
+        frame_check = 3  # Alters how long you have to close your eye to draw
+
+        # Drowsiness Tracker
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        subjects = self.detector(gray, 0)
+        for subject in subjects:
+            shape = self.predictor(gray, subject)
+            shape = face_utils.shape_to_np(shape)  # converting to NumPy Array
+            leftEye = shape[self.lStart:self.lEnd]
+            rightEye = shape[self.rStart:self.rEnd]
+            leftEAR = self.eye_aspect_ratio(leftEye)
+            rightEAR = self.eye_aspect_ratio(rightEye)
+            ear = (leftEAR + rightEAR) / 2.0
+            leftEyeHull = cv2.convexHull(leftEye)
+            rightEyeHull = cv2.convexHull(rightEye)
+            cv2.drawContours(image, [leftEyeHull], -1, (0, 255, 0), 1)
+            cv2.drawContours(image, [rightEyeHull], -1, (0, 255, 0), 1)
+
+            if ear < thresh:
+                print('Eye closed?', self.flag)
+                if leftEAR < rightEAR:
+                    self.left_closed = True
+                    print('left closed')
+                else:
+                    self.right_closed = True
+                    print('right closed')
+
+                self.flag += 1
+                # print (flag)
+                if self.flag >= frame_check:
+                    cv2.putText(image, "****************ALERT!****************", (10, 30),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    cv2.putText(image, "****************ALERT!****************", (10, 325),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+            else:
+                self.left_closed = False
+                self.right_closed = False
+                self.flag = 0
+        # cv2.imshow("Frame", image)
 
     def run(self):
         while True:
@@ -136,6 +196,7 @@ class EyeTracker:
                     count += 1
 
                 image[0:len(right_eye), 0:len(right_eye[0])] = right_eye
+            self.detect_closed_eyes(image)
             cv2.imshow("PupilTrack v.0.1", image)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
@@ -143,11 +204,11 @@ class EyeTracker:
 
 class EyePacket:
 
-    def __init__(self, right_is_closed, left_is_closed, x, y):
-        self.right_is_closed = right_is_closed
+    def __init__(self, left_is_closed, right_is_closed, x, y):
         self.left_is_closed = left_is_closed
+        self.right_is_closed = right_is_closed
         self.x = x
         self.y = y
 
-# run = EyeTracker()
-# run.run()
+run = EyeTracker()
+run.run()
