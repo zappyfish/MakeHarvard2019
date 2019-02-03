@@ -62,14 +62,19 @@ class EyeTracker:
             cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
             cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
 
+            # Computer x and y
+            right_eye = imutils.resize(self.extract_eye(frame, shape[36], shape[41], shape[40], shape[39], shape[38], shape[37]), width=100, height=50)
+
+            # print(self.x, ',', self.y)
+
             if ear < thresh:
                 print('Eye closed?', self.flag)
                 if leftEAR < rightEAR:
                     self.left_closed = True
-                    print('left closed')
+                    # print('left closed')
                 else:
                     self.right_closed = True
-                    print('right closed')
+                    # print('right closed')
 
                 self.flag += 1
                 # print (flag)
@@ -81,8 +86,10 @@ class EyeTracker:
             else:
                 self.flag = 0
 
-        return EyePacket(self.left_closed, self.right_closed, self.x, self.y)
-        # cv2.imshow("Frame", image)
+        # cv2.imshow("Frame", frame)
+
+        return EyePacket(self.left_closed, self.right_closed, self.x - self.past_values_x[-1], self.y - self.past_values_y[-1])
+
 
     def min_intensity_x(self, img):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -147,6 +154,10 @@ class EyeTracker:
 
         self.x = pupil_x = self.min_intensity_x(eye)
         self.y = pupil_y = self.min_intensity_y(eye)
+
+        print(self.x - self.past_values_x[-1], ',', self.y - self.past_values_y[-1])
+        # self.x = self.past_values_x[-1] - self.x
+        # self.y = self.past_values_y[-1] - self.y
 
         cv2.line(eye, (pupil_x, 0), (pupil_x, len(eye)), (0, 255, 0), 1)
         cv2.line(eye, (0, pupil_y), (len(eye[0]), pupil_y), (0, 255, 0), 1)
