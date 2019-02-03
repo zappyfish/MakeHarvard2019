@@ -21,8 +21,9 @@ class DataManager:
     def get_and_process_marker_frame(self):
         next_frame = self.camera.get_next_frame()
         dx, dy = self.object_tracker.process_frame(next_frame, self.camera.input)
-        self.stub_packet.x = dx
+        self.stub_packet.x = -dx
         self.stub_packet.y = dy
+        self.data_filter.add_data_point(self.stub_packet)
         self._handle_communications(self.stub_packet)
 
     def get_and_process_frame(self):

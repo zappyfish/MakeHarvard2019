@@ -229,6 +229,9 @@ class ObjectTracker:
             rect = self.tracker.get_position()
             pt1 = (int(rect.left()), int(rect.top()))
             pt2 = (int(rect.right()), int(rect.bottom()))
+            cv2.rectangle(frame, pt1, pt2, (0, 0, 255), 3)
+            cv2.imshow('drawing_tracker', frame)
+            cv2.waitKey(1)
             x, y = self.get_center(pt1, pt2)
             dx = x - self.last_x
             dy = y - self.last_y

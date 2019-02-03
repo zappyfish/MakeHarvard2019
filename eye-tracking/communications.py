@@ -15,7 +15,7 @@ class Communicator:
 
     def send_delta(self, x, y):
         data = {'x': x, 'y': y}
-        # self._make_request(self.TRANSLATE, data)
+        self._make_request(self.TRANSLATE, data)
 
     def send_up(self):
         self._make_request(self.UP)
@@ -28,9 +28,9 @@ class Communicator:
         if cur_time - self.last_send_time >= self.TIMEOUT:
             try:
                 requests.post(url, data=data, timeout=self.TIMEOUT)
+                self.last_send_time = cur_time
             except:
                 pass
-            self.last_send_time = cur_time
         else:
             print("did not send")
 

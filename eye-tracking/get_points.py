@@ -16,7 +16,7 @@ def run(cap):
     proceed = False
     while not proceed:
         cv2.rectangle(im, p1, p2, (0, 0, 255), 3)
-        cv2.imshow('Place your marker in the box and hit \'p\'', im)
+        cv2.imshow('drawing_tracker', im)
         proceed = (cv2.waitKey(10) == ord('p'))
         _, im = cap.read()
 
