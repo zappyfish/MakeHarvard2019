@@ -16,8 +16,8 @@ class HardwareAbstractionLayer:
         angle_two_pin = 12
 
         self.z_motor = Motor(z_pin)
-        self.shoulder_motor = Motor(angle_one_pin, 80 * pi / 180)
-        self.elbow_motor = ReverseMotor(angle_two_pin, 105 * pi / 180)
+        self.shoulder_motor = ReverseMotor(angle_one_pin, 80 * pi / 180)
+        self.elbow_motor = Motor(angle_two_pin, 105 * pi / 180)
 
     def translate_instrument(self, delta_x, delta_y):
         desired = np.array([delta_x, delta_y])
