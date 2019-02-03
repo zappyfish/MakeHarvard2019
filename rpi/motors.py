@@ -26,6 +26,9 @@ class Motor:
             self.pwm_signal = pwm
             print("signal set to ")
             print(self.pwm_signal)
+        else:
+            print("could not set to: ")
+            print(self.pwm_signal)
         return self.get_angle()
 
     def _map_angle_to_dc(self, angle):
