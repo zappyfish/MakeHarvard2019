@@ -7,7 +7,7 @@ class Motor:
     MAX_DC = 256
     START_SIGNAL = int(MAX_DC / 2)
     MIN_DC = 0
-    PWM_ANGLE_SCALE_FACTOR = (pi / 128)
+    PWM_ANGLE_SCALE_FACTOR = 128 / pi
 
     DC_SCALE_FACTOR = 4
 
@@ -16,21 +16,19 @@ class Motor:
         self.pwm = motor_pin
         wiringpi.pinMode(self.pwm, wiringpi.GPIO.PWM_OUTPUT)
         wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
-        self.pwm_signal = self.START_SIGNAL
-        self.start_angle_offset = start_angle_offset
+        self.angle = start_angle_offset
         wiringpi.pwmSetClock(192)  # TODO: check this
         wiringpi.pwmSetRange(2000)
-        wiringpi.pwmWrite(self.pwm, self.pwm_signal)
+        wiringpi.pwmWrite(self.pwm, self._map_angle_to_dc(self.angle))
 
     def change_angle(self, angle):
         start_angle = self.get_angle()
         print("start angle: ")
         print(start_angle)
-        angle = -angle
-        pwm = self._map_angle_to_dc(angle) + self.pwm_signal
+        pwm = self._map_angle_to_dc(angle + self.get_angle())
         if self.can_set_pwm_to(pwm):
             wiringpi.pwmWrite(self.pwm, int(pwm))
-            self.pwm_signal = pwm
+            self.angle += angle
             print("end angle: ")
             print(self.get_angle())
             return True
@@ -39,10 +37,10 @@ class Motor:
             return False
 
     def _map_angle_to_dc(self, angle):
-        return angle / self.PWM_ANGLE_SCALE_FACTOR
+        return (angle * self.PWM_ANGLE_SCALE_FACTOR) + self.START_SIGNAL
 
     def get_angle(self):
-        return ((self.pwm_signal - self.START_SIGNAL) * self.PWM_ANGLE_SCALE_FACTOR) + self.start_angle_offset
+        return self.angle
 
     def can_set_pwm_to(self, pwm):
         return self.MIN_DC <= pwm <= self.MAX_DC
