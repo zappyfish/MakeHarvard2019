@@ -8,7 +8,7 @@ class HardwareAbstractionLayer:
     ARM_ONE_LENGTH = 1
     ARM_TWO_LENGTH = 1
     Z_MOVEMENT_FACTOR = 5
-    ANGLE_DISPLACEMENT_MAGNITUDE = 0.04
+    ANGLE_DISPLACEMENT_MAGNITUDE = 0.01
 
     def __init__(self):
         z_pin = 18
@@ -16,7 +16,7 @@ class HardwareAbstractionLayer:
         angle_two_pin = 12
 
         self.z_motor = Motor(z_pin)
-        self.shoulder_motor = Motor(angle_one_pin, 35 * pi / 180)
+        self.shoulder_motor = Motor(angle_one_pin, 45 * pi / 180)
         self.elbow_motor = Motor(angle_two_pin, 90 * pi / 180)
 
     def translate_instrument(self, delta_x, delta_y):

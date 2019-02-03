@@ -9,6 +9,7 @@ class Communicator:
     DOWN = BASE_URL + '/move/down'
 
     TIMEOUT = 0.2
+    MIN_TIME = 0.02
 
     def __init__(self):
         self.last_send_time = time.time()
@@ -25,7 +26,7 @@ class Communicator:
 
     def _make_request(self, url, data={}):
         cur_time = time.time()
-        if cur_time - self.last_send_time >= self.TIMEOUT:
+        if cur_time - self.last_send_time >= self.MIN_TIME:
             try:
                 requests.post(url, data=data, timeout=self.TIMEOUT)
                 self.last_send_time = cur_time
