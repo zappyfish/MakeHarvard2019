@@ -2,7 +2,7 @@ import wiringpi
 from math import pi
 
 
-class Motor:
+class Motor(object):
 
     MAX_DC = 256
     START_SIGNAL = int(MAX_DC / 2)
