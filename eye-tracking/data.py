@@ -1,5 +1,5 @@
 from video import CaptureFeed
-from tracking import EyeTracker
+from tracking import EyeTracker, ObjectTracker, EyePacket
 from communications import Communicator
 
 
@@ -10,11 +10,20 @@ class DataManager:
         self.eye_tracker = EyeTracker()
         self.rpi_link = Communicator()
         self.data_filter = DataFilter()
+        self.object_tracker = ObjectTracker()
+        self.stub_packet = EyePacket(False, False, 0, 0)
 
     # def camera_test(self):
     #     while True:
     #         frame = self.camera.get_next_frame()
     #         self.eye_tracker.get_eye_info(frame)
+
+    def get_and_process_marker_frame(self):
+        next_frame = self.camera.get_next_frame()
+        dx, dy = self.object_tracker.process_frame(next_frame, self.camera.input)
+        self.stub_packet.x = dx
+        self.stub_packet.y = dy
+        self._handle_communications(self.stub_packet)
 
     def get_and_process_frame(self):
         next_frame = self.camera.get_next_frame()

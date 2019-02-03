@@ -8,6 +8,7 @@ import imutils
 from imutils import face_utils
 from scipy.spatial import distance
 import dlib
+import get_points
 
 
 ap = argparse.ArgumentParser()
@@ -208,3 +209,40 @@ class EyePacket:
         self.right_is_closed = right_is_closed
         self.x = x
         self.y = y
+
+class ObjectTracker:
+
+    def __init__(self):
+        self.last_x = -1
+        self.last_y = -1
+        self.tracker = dlib.correlation_tracker()
+
+
+    def process_frame(self, frame, cap):
+        if self.last_x == -1 and self.last_y == -1:
+            self.handle_first_frame(cap)
+            return [0, 0]
+        else:
+            self.tracker.update(frame)
+            # Get the position of the object, draw a
+            # bounding box around it and display it.
+            rect = self.tracker.get_position()
+            pt1 = (int(rect.left()), int(rect.top()))
+            pt2 = (int(rect.right()), int(rect.bottom()))
+            x, y = self.get_center(pt1, pt2)
+            dx = x - self.last_x
+            dy = y - self.last_y
+            self.last_x = x
+            self.last_y = y
+            return [dx, dy]
+
+    def handle_first_frame(self, cap):
+        points, result_image = get_points.run(cap)
+        p1, p2 = points
+        left, top, right, bottom = [p1[0], p1[1], p2[0], p2[1]]
+        self.last_x, self.last_y = self.get_center(points[0], points[1])
+
+        self.tracker.start_track(result_image, dlib.rectangle(left, top, right, bottom))
+
+    def get_center(self, pt1, pt2):
+        return [(pt1[0] + pt2[0]) / 2, (pt1[1] + pt2[1]) / 2]
