@@ -8,6 +8,7 @@ class HardwareAbstractionLayer:
     ARM_ONE_LENGTH = 1
     ARM_TWO_LENGTH = 1
     Z_MOVEMENT_FACTOR = 5
+    ANGLE_DISPLACEMENT_MAGNITUDE = 1 # hmmm
 
     def __init__(self):
         z_pin = 18
@@ -26,9 +27,13 @@ class HardwareAbstractionLayer:
 
         control_inputs = np.linalg.lstsq(jacobian, desired)[0]
         if control_inputs[0] != 0 and control_inputs[1] != 0:
+            control_inputs = self.remap_controls(control_inputs)
             return self.shoulder_motor.change_angle(control_inputs[0]) and self.elbow_motor.change_angle(control_inputs[1])
         else:
             return False
+
+    def remap_controls(self, control_inputs):
+        return control_inputs * (4 / np.linalg.norm(control_inputs))
 
     def move_instrument_up(self):
         return self.z_motor.change_angle(self.Z_MOVEMENT_FACTOR)

@@ -7,7 +7,7 @@ class Motor:
     MAX_DC = 256
     START_SIGNAL = int(MAX_DC / 2)
     MIN_DC = 0
-    PWM_ANGLE_SCALE_FACTOR = 1.0
+    PWM_ANGLE_SCALE_FACTOR = (pi / 128)
 
     def __init__(self, motor_pin):
         wiringpi.wiringPiSetupGpio()
@@ -25,6 +25,7 @@ class Motor:
             wiringpi.pwmWrite(self.pwm, pwm)
             self.pwm_signal = pwm
             print("signal set to ")
+            print(pwm)
             return True
         else:
             print("could not set to: ")
