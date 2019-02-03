@@ -4,9 +4,9 @@ from math import pi
 
 class Motor:
 
-    START_ANGLE = 45
-    MAX_ANGLE = 90
-    MIN_ANGLE = 0
+    START_ANGLE = 512
+    MAX_DC = 1024
+    MIN_DC = 0
 
     def __init__(self, motor_pin):
         wiringpi.wiringPiSetupGpio()
@@ -30,10 +30,10 @@ class Motor:
             return False
 
     def _map_angle_to_dc(self, angle):
-        return angle
+        return int(angle)
 
     def get_angle(self):
         return self.angle
 
     def can_set_angle(self, angle):
-        return self.MIN_ANGLE <= angle <= self.MAX_ANGLE
+        return self.MIN_DC <= self._map_angle_to_dc(angle) <= self.MAX_DC
