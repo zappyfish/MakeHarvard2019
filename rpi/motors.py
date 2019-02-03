@@ -22,7 +22,7 @@ class Motor:
             print("changed angle to: " + str(self.angle))
             return True
         else:
-            print("could not change to angle" + str(self.angle)))
+            print("could not change to angle" + str(self.angle))
             return False
 
     def _map_angle_to_dc(self, angle):
