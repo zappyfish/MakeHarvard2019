@@ -10,9 +10,9 @@ class Motor:
 
     def __init__(self, motor_pin):
         GPIO.setmode(GPIO.BCM)  # Broadcom pin-numbering scheme
-        pwm_pin = GPIO.setup(motor_pin, GPIO.OUT)
+        GPIO.setup(motor_pin, GPIO.OUT)
         self.angle = self.START_ANGLE
-        self.pwm = GPIO.PWM(pwm_pin, 1000)  # 90 is start angle
+        self.pwm = GPIO.PWM(motor_pin, 1000)  # 90 is start angle
         self.pwm.start(50) # change this
         print("started")
 
