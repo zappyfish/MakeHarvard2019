@@ -19,7 +19,7 @@ class HardwareAbstractionLayer:
         self.shoulder_motor = Motor(angle_one_pin, 20 * pi / 180)
         self.elbow_motor = Motor(angle_two_pin, 70 * pi / 180)
 
-        self.shoulder_motor.change_angle(0.5)
+        self.shoulder_motor.change_angle(-0.5)
         self.shoulder_motor.change_angle(-0.5)
 
 
@@ -32,7 +32,7 @@ class HardwareAbstractionLayer:
         control_inputs = np.linalg.lstsq(jacobian, desired)[0]
         if control_inputs[0] != 0 and control_inputs[1] != 0:
             control_inputs[1] = -control_inputs[1]
-            control_inputs[0] = -control_inputs[0] # TODO: check this
+            # control_inputs[0] = -control_inputs[0] # TODO: check this
             control_inputs = self.remap_controls(control_inputs)
             return self.shoulder_motor.change_angle(control_inputs[0]) and self.elbow_motor.change_angle(control_inputs[1])
         else:
