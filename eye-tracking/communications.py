@@ -8,18 +8,24 @@ class Communicator:
     UP = BASE_URL + '/move/up'
     DOWN = BASE_URL + '/move/down'
 
-    TIMEOUT = 0.5
+    TIMEOUT = 0.1
 
     def __init__(self):
         pass
 
     def send_delta(self, x, y):
         data = {'x': x, 'y': y}
-        #requests.post(self.TRANSLATE, data=data, timeout=self.TIMEOUT)
+        self._make_request(self.TRANSLATE, data)
 
     def send_up(self):
-        requests.post(self.UP, timeout=self.TIMEOUT)
+        self._make_request(self.UP)
 
     def send_down(self):
-        requests.post(self.DOWN, timeout=self.TIMEOUT)
+        self._make_request(self.DOWN)
+
+    def _make_request(self, url, data={}):
+        try:
+            requests.post(url, data=data, timeout=self.TIMEOUT)
+        except:
+            pass
 

@@ -41,7 +41,7 @@ class EyeTracker:
 
     def get_eye_info(self, frame):
         thresh = 0.275  # Higher thresh, more often finds closed eyes
-        frame_check = 5  # Alters how long you have to close your eye to draw
+        frame_check = 1  # Alters how long you have to close your eye to draw
 
         # Drowsiness Tracker
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
