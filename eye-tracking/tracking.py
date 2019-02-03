@@ -116,8 +116,8 @@ class EyeTracker:
         return eye
 
     def detect_closed_eyes(self, image):
-        thresh = 0.3  # Higher thresh, more often finds closed eyes
-        frame_check = 3  # Alters how long you have to close your eye to draw
+        thresh = 0.275  # Higher thresh, more often finds closed eyes
+        frame_check = 5  # Alters how long you have to close your eye to draw
 
         # Drowsiness Tracker
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -177,8 +177,8 @@ class EyeTracker:
 
                 # convert dlib's rectangle to a OpenCV-style bounding box
                 # [i.e., (x, y, w, h)], then draw the face bounding box
-                # (x, y, w, h) = face_utils.rect_to_bb(rect)
-                # cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                (x, y, w, h) = face_utils.rect_to_bb(rect)
+                cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
                 # show the face number
                 # cv2.putText(image, "Face #{}".format(i + 1), (x - 10, y - 10),
