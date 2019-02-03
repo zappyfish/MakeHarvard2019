@@ -3,7 +3,7 @@ import requests
 
 class Communicator:
 
-    BASE_URL = 'http://127.0.0.1:5000'
+    BASE_URL = 'http://192.168.43.233:5000'
     TRANSLATE = BASE_URL + '/move/translate'
     UP = BASE_URL + '/move/up'
     DOWN = BASE_URL + '/move/down'

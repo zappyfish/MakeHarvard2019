@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/move/up', methods=['POST'])
 def move_up():
     global hal
-    if hal.move_up():
+    if hal.move_instrument_up():
         return SUCCESS
     else:
         return FAILURE
@@ -21,7 +21,7 @@ def move_up():
 @app.route('/move/down', methods=['POST'])
 def move_down():
     global hal
-    if hal.move_down():
+    if hal.move_instrument_down():
         return SUCCESS
     else:
         return FAILURE
@@ -32,11 +32,11 @@ def translate():
     global hal
     delta_x = request.form.get('x')
     delta_y = request.form.get('y')
-    if hal.translate(delta_x, delta_y):
+    if hal.translate_instrument(delta_x, delta_y):
         return SUCCESS
     else:
         return FAILURE
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
