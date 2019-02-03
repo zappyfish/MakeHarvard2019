@@ -17,8 +17,8 @@ class Motor(object):
         wiringpi.pinMode(self.pwm, wiringpi.GPIO.PWM_OUTPUT)
         wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
         d_pwm = self._map_angle_to_dc(start_angle_offset)
-        self.min_dc = self.min_dc - d_pwm
-        self.max_dc = self.max_dc - d_pwm
+        self.min_dc = self.MIN_DC - d_pwm
+        self.max_dc = self.MAX_DC - d_pwm
         self.angle_offset = start_angle_offset
         self.angle = 0
         wiringpi.pwmSetClock(192)  # TODO: check this
