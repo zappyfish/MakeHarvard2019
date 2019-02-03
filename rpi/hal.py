@@ -10,9 +10,9 @@ class HardwareAbstractionLayer:
     Z_MOVEMENT_FACTOR = 5
 
     def __init__(self):
-        z_pin = 13
+        z_pin = 18
         angle_one_pin = 12
-        angle_two_pin = 18
+        angle_two_pin = 13
 
         self.z_motor = Motor(z_pin)
         self.shoulder_motor = Motor(angle_one_pin)

@@ -4,7 +4,7 @@ from math import pi
 
 class Motor:
 
-    MAX_DC = 300
+    MAX_DC = 256
     START_SIGNAL = int(MAX_DC / 2)
     MIN_DC = 0
     PWM_ANGLE_SCALE_FACTOR = 1.0
