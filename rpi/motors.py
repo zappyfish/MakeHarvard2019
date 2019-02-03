@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+import wiringpi
 from math import pi
 
 
@@ -9,21 +9,28 @@ class Motor:
     MIN_ANGLE = 0
 
     def __init__(self, motor_pin):
-        GPIO.setmode(GPIO.BCM)  # Broadcom pin-numbering scheme
-        pwm_pin = GPIO.setup(motor_pin, GPIO.OUT)
+        wiringpi.wiringPiSetupGpio()
+        self.pwm = motor_pin
+        wiringpi.pinMode(self.pwm, wiringpi.GPIO_PWM_OUTPUT)
+        wiringpi.pwmSetMode(wiringpi.GPIO.PWM_MODE_MS)
         self.angle = self.START_ANGLE
-        self.pwm = GPIO.PWM(pwm_pin, self.angle) # 90 is start angle
+        wiringpi.pwmSetClock(192) # TODO: check this
+        wiringpi.pwmSetRange(2000)
+        wiringpi.pwmWrite(self.pwm, self.angle)
+        print("started")
 
     def set_angle(self, angle):
         if self.can_set_angle(angle):
-            self.pwm.changeDutyCycle(self._map_angle_to_dc(angle))
+            self.pwm.ChangeDutyCycle(self._map_angle_to_dc(angle))
             self.angle = angle
+            print("changed angle to: " + str(self.angle))
             return True
         else:
+            print("could not change to angle" + str(self.angle))
             return False
 
     def _map_angle_to_dc(self, angle):
-        return int(self.MAX_ANGLE * (angle / pi))
+        return angle
 
     def get_angle(self):
         return self.angle
