@@ -41,6 +41,8 @@ class Motor(object):
             return False
 
     def _map_angle_to_dc(self, angle):
+        print("total angle is ")
+        print(angle)
         return (angle * self.PWM_ANGLE_SCALE_FACTOR) + self.START_SIGNAL
 
     def get_angle(self):
