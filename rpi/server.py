@@ -30,8 +30,8 @@ def move_down():
 @app.route('/move/translate', methods=['POST'])
 def translate():
     global hal
-    delta_x = request.form.get('y') # TODO: Change this as you change your whiteboard coordinate system
-    delta_y = -1 * request.form.get('x')
+    delta_x = float(request.form.get('y')) # TODO: Change this as you change your whiteboard coordinate system
+    delta_y = -1 * float(request.form.get('x'))
     if hal.translate_instrument(delta_x, delta_y):
         return SUCCESS
     else:
