@@ -21,7 +21,7 @@ class Motor:
 
     def set_angle(self, angle):
         if self.can_set_angle(angle):
-            self.pwm.ChangeDutyCycle(self._map_angle_to_dc(angle))
+            wiringpi.pwmWrite(self.pwm, self._map_angle_to_dc(angle))
             self.angle = angle
             print("changed angle to: " + str(self.angle))
             return True
