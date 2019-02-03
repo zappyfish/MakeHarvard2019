@@ -9,6 +9,8 @@ class Motor:
     MIN_DC = 0
     PWM_ANGLE_SCALE_FACTOR = (pi / 128)
 
+    DC_SCALE_FACTOR = 10
+
     def __init__(self, motor_pin):
         wiringpi.wiringPiSetupGpio()
         self.pwm = motor_pin
@@ -33,7 +35,7 @@ class Motor:
             return False
 
     def _map_angle_to_dc(self, angle):
-        return angle
+        return angle * self.DC_SCALE_FACTOR
 
     def get_angle(self):
         return (self.pwm_signal - self.START_SIGNAL) * self.PWM_ANGLE_SCALE_FACTOR
