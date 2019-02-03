@@ -27,7 +27,7 @@ class Motor:
             return False
 
     def _map_angle_to_dc(self, angle):
-        return int(self.MAX_ANGLE * (angle / pi))
+        return angle
 
     def get_angle(self):
         return self.angle
