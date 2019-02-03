@@ -33,7 +33,7 @@ class Motor:
             return False
 
     def _map_angle_to_dc(self, angle):
-        return int(angle / self.PWM_ANGLE_SCALE_FACTOR)
+        return angle
 
     def get_angle(self):
         return self.pwm_signal * self.PWM_ANGLE_SCALE_FACTOR
