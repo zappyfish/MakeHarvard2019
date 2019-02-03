@@ -23,8 +23,10 @@ class DataManager:
         self._handle_communications(eye_info)
 
     def _handle_communications(self, eye_info):
-        right = eye_info.right_is_closed and self.data_filter.is_right_closed()
-        left = eye_info.left_is_closed and self.data_filter.is_left_closed()
+        #right = eye_info.right_is_closed and self.data_filter.is_right_closed()
+        #left = eye_info.left_is_closed and self.data_filter.is_left_closed()
+        right = self.data_filter.is_right_closed()
+        left = self.data_filter.is_left_closed()
         if not (right and left):
             if right:
                 self.rpi_link.send_up()
@@ -38,7 +40,7 @@ class DataManager:
 
 class DataFilter:
 
-    MAX_LEN = 1
+    MAX_LEN = 10
 
     def __init__(self):
         self.filtered_x = 0
@@ -46,7 +48,7 @@ class DataFilter:
         self.filtered_right = [False for i in range(self.MAX_LEN)]
         self.filtered_left = [False for i in range(self.MAX_LEN)]
         self.filter_ind = 0
-        self.lpf_alpha = 0
+        self.lpf_alpha = 0.5
 
     def add_data_point(self, eye_info):
         self.filtered_right[self.filter_ind] = eye_info.right_is_closed

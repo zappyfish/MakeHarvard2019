@@ -1,5 +1,5 @@
 import requests
-
+import time
 
 class Communicator:
 
@@ -8,14 +8,14 @@ class Communicator:
     UP = BASE_URL + '/move/up'
     DOWN = BASE_URL + '/move/down'
 
-    TIMEOUT = 0.1
+    TIMEOUT = 0.2
 
     def __init__(self):
-        pass
+        self.last_send_time = time.time()
 
     def send_delta(self, x, y):
         data = {'x': x, 'y': y}
-        self._make_request(self.TRANSLATE, data)
+        # self._make_request(self.TRANSLATE, data)
 
     def send_up(self):
         self._make_request(self.UP)
@@ -24,8 +24,13 @@ class Communicator:
         self._make_request(self.DOWN)
 
     def _make_request(self, url, data={}):
-        try:
-            requests.post(url, data=data, timeout=self.TIMEOUT)
-        except:
-            pass
+        cur_time = time.time()
+        if cur_time - self.last_send_time >= self.TIMEOUT:
+            try:
+                requests.post(url, data=data, timeout=self.TIMEOUT)
+            except:
+                pass
+            self.last_send_time = cur_time
+        else:
+            print("did not send")
 

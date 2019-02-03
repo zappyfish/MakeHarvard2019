@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94ed9abc-e077-42aa-b293-c36992a52d28" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../eye-tracking/shape_predictor_68_face_landmarks.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/eye-tracking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/eye-tracking.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eye-tracking/communications.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/communications.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eye-tracking/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eye-tracking/find_eyes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/find_eyes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eye-tracking/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/../eye-tracking/tracking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hal.py" beforeDir="false" afterPath="$PROJECT_DIR$/hal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motors.py" beforeDir="false" afterPath="$PROJECT_DIR$/motors.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,13 +41,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="py" value="4742" />
+          <entry key="py" value="4813" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="4742" />
+          <entry key="Python" value="4813" />
         </counts>
       </usages-collector>
     </session>
@@ -47,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+            <state relative-caret-position="510">
+              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <marker date="1549162633887" expanded="true" signature="584:781" ph="..." />
@@ -57,15 +67,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            <state relative-caret-position="420">
+              <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
-                <marker date="1549174376960" expanded="true" signature="497:924" ph="..." />
-                <marker date="1549174376960" expanded="true" signature="1055:1127" ph="..." />
+                <marker date="1549178920346" expanded="true" signature="497:898" ph="..." />
+                <marker date="1549178920346" expanded="true" signature="1029:1101" ph="..." />
               </folding>
             </state>
           </provider>
@@ -80,15 +90,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+            <state relative-caret-position="360">
+              <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1549174944944" expanded="true" signature="50:51" ph="..." />
-                <marker date="1549174944944" expanded="true" signature="50:157" ph="..." />
+                <marker date="1549178920342" expanded="true" signature="50:51" ph="..." />
+                <marker date="1549178920342" expanded="true" signature="50:157" ph="..." />
               </folding>
             </state>
           </provider>
@@ -132,7 +142,7 @@
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="width" value="1265" />
     <option name="height" value="967" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -272,8 +282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="510">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <marker date="1549162633887" expanded="true" signature="584:781" ph="..." />
@@ -281,26 +291,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hal.py">
+    <entry file="file://$PROJECT_DIR$/motors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        <state relative-caret-position="360">
+          <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <marker date="1549174376960" expanded="true" signature="497:924" ph="..." />
-            <marker date="1549174376960" expanded="true" signature="1055:1127" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1549178920342" expanded="true" signature="50:51" ph="..." />
+            <marker date="1549178920342" expanded="true" signature="50:157" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motors.py">
+    <entry file="file://$PROJECT_DIR$/hal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="420">
+          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1549174944944" expanded="true" signature="50:51" ph="..." />
-            <marker date="1549174944944" expanded="true" signature="50:157" ph="..." />
+            <element signature="e#0#24#0" expanded="true" />
+            <marker date="1549178920346" expanded="true" signature="497:898" ph="..." />
+            <marker date="1549178920346" expanded="true" signature="1029:1101" ph="..." />
           </folding>
         </state>
       </provider>

@@ -26,8 +26,7 @@ class HardwareAbstractionLayer:
         jacobian = self.compute_jacobian(theta_one, theta_two)
 
         control_inputs = np.linalg.lstsq(jacobian, desired)[0]
-        success = self.shoulder_motor.change_angle(control_inputs[0]) and self.elbow_motor.change_angle(control_inputs[1])
-        return success
+        return self.shoulder_motor.change_angle(control_inputs[0]) and self.elbow_motor.change_angle(control_inputs[1])
 
     def move_instrument_up(self):
         return self.z_motor.change_angle(self.Z_MOVEMENT_FACTOR)

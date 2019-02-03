@@ -237,30 +237,3 @@ def show_extraction_results(img):
     #     #     set_title_and_hide_axis('Extracted eye image')
     #     #     plt.imshow(cv2.cvtColor(eye_image, cv2.COLOR_BGR2RGB), interpolation="bicubic")
     #     #     plt.show()
-
-
-def show_webcam(mirror=True):
-    cam = cv2.VideoCapture(0)
-    while True:
-        ret_val, img = cam.read()
-        if mirror:
-            img = cv2.flip(img, 1)
-
-        # Do facial recognition and then draw this
-        img = show_extraction_results(img)
-        cv2.imshow('my webcam', img)
-
-        k = cv2.waitKey(1)
-
-        if k % 256 == 27:
-            break  # esc to quit
-        elif k % 256 == 32:
-            print('Space')
-
-    cam.release()
-    cv2.destroyAllWindows()
-
-
-# show_webcam()
-img, faces, face_features = extract_image_features('photos/Galvanize Headshot Cropped.JPG')
-show_extraction_results(img)

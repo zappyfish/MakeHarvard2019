@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from rect import Rect
 import time
 import argparse
@@ -40,7 +40,7 @@ class EyeTracker:
         pass
 
     def get_eye_info(self, frame):
-        thresh = 0.275  # Higher thresh, more often finds closed eyes
+        thresh = 0.22  # Higher thresh, more often finds closed eyes
         frame_check = 1  # Alters how long you have to close your eye to draw
 
         # Drowsiness Tracker
