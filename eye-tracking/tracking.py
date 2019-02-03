@@ -116,7 +116,7 @@ class EyeTracker:
         return eye
 
     def detect_closed_eyes(self, image):
-        thresh = 0.25
+        thresh = 0.3  # Higher thresh, more often finds closed eyes
         frame_check = 3  # Alters how long you have to close your eye to draw
 
         # Drowsiness Tracker
