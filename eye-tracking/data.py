@@ -43,8 +43,8 @@ class DataFilter:
     def __init__(self):
         self.filtered_x = 0
         self.filtered_y = 0
-        self.filtered_right = []
-        self.filtered_left = []
+        self.filtered_right = [False for i in range(self.MAX_LEN)]
+        self.filtered_left = [False for i in range(self.MAX_LEN)]
         self.filter_ind = 0
         self.lpf_alpha = 0
 
